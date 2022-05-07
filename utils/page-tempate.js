@@ -25,19 +25,53 @@ const generatePage = teamData => {
         <body>
             <header>My Team</header>
             <section class="team-display">
-            ${teamData.map(({ name, role, id, email }) => {
-        return `
+            ${teamData
+            .filter(({ role }) => role === "manager")
+            .map(({ name, role, id, email, office }) => {
+                return `
                 <div class="team-member">
                     <h1>${name}</h1>
                     <h2>${role}</h2>
                 
                     <p>${id}</p>
                     <p>${email}</p>
+                    <p>${office}</p>
                 </div>
                 `;
             })
         .join('')}
+
+            ${teamData
+            .filter(({ role }) => role === "engineer")
+            .map(({ name, role, id, email, github }) => {
+                return `
+                <div class="team-member">
+                    <h1>${name}</h1>
+                    <h2>${role}</h2>
+                
+                    <p>${id}</p>
+                    <p>${email}</p>
+                    <p>${github}</p>
+                </div>
+                `;
+            })
+            .join('')}
         
+            ${teamData
+            .filter(({ role }) => role === "intern")
+            .map(({ name, role, id, email, school }) => {
+                return `
+                <div class="team-member">
+                    <h1>${name}</h1>
+                    <h2>${role}</h2>
+                
+                    <p>${id}</p>
+                    <p>${email}</p>
+                    <p>${school}</p>
+                </div>
+                `;
+            })
+        .join('')}
 
             </section>
         </body>
