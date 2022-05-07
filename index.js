@@ -1,9 +1,11 @@
 const inquirer = require('inquirer');
 const { ConsoleWriter } = require('istanbul-lib-report');
+const generatePage = require('./utils/page-tempate')
 const Manager = require('./lib/Manager');
 const Employee = require('./lib/Employee');
 const Engineer = require('./lib/Engineer');
 const Intern = require('./lib/Intern');
+const { writeFile } = require('fs');
 
 const team = []
 
@@ -20,7 +22,7 @@ const startApplication = () => {
         })
         .then(({ name }) => {
             // set up manager object
-            const manager = new Manager(name);
+            let manager = new Manager(name);
             manager.name = name
 
             inquirer
@@ -80,6 +82,8 @@ const nextEmployee = () => {
         .then(({ nextEmployee }) => {
             if (nextEmployee === 'None') {
                 console.log("You are done.")
+                generatePage(team);
+
             } else {
                 getEmployeeInfo(nextEmployee);
             }
@@ -121,10 +125,10 @@ const getEmployeeInfo = (employeeType) => {
                             employee.email = email;
                             
                             if (employeeType === "Engineer") {
-                                const engineer = new Engineer();
-                                engineer.name = employee.name;
-                                engineer.id = employee.id;
-                                engineer.email = employee.email;
+                                let engineer = new Engineer(employee.name, employee.id, employee.email);
+                                // engineer.name = employee.name;
+                                // engineer.id = employee.id;
+                                // engineer.email = employee.email;
                                 inquirer
                                     .prompt({
                                         type: 'text',
@@ -139,10 +143,10 @@ const getEmployeeInfo = (employeeType) => {
                                         nextEmployee();
                                      })
                             } else if (employeeType === "Intern") {
-                                const intern = new Intern();
-                                intern.name = employee.name;
-                                intern.id = employee.id;
-                                intern.email = employee.email;
+                                const intern = new Intern(employee.name, employee.id, employee.email);
+                                // intern.name = employee.name;
+                                // intern.id = employee.id;
+                                // intern.email = employee.email;
                                 inquirer
                                     .prompt({
                                         type: 'text',

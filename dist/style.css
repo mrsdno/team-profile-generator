@@ -1,0 +1,16 @@
+* {
+    box-sizing: border-box;
+}
+
+.team-display {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.team-member {
+    width: 30%;
+    border: 3px solid red;
+    padding: 0.3rem;
+    margin: 0.3rem;
+}
