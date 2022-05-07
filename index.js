@@ -2,6 +2,8 @@ const inquirer = require('inquirer');
 const { ConsoleWriter } = require('istanbul-lib-report');
 const Manager = require('./lib/Manager');
 const Employee = require('./lib/Employee');
+const Engineer = require('./lib/Engineer');
+const Intern = require('./lib/Intern');
 
 const team = []
 
@@ -19,6 +21,7 @@ const startApplication = () => {
         .then(({ name }) => {
             // set up manager object
             const manager = new Manager(name);
+            manager.name = name
 
             inquirer
                 // get manager id
@@ -48,6 +51,7 @@ const startApplication = () => {
                                         message: `What is ${manager.name}'s office number?`
                                     })
                                     .then(({ office }) => {
+                                        manager.type
                                         manager.office = office;
                                         
                                         // manger object is complete and stored in manager, pushed to team object
@@ -93,7 +97,8 @@ const getEmployeeInfo = (employeeType) => {
         })
         .then(({ name }) => {
             // set up employee object
-            const employee = new Employee(name);
+            const employee = new Employee();
+            employee.name = name;
 
             inquirer
                 // get employee id
@@ -114,35 +119,39 @@ const getEmployeeInfo = (employeeType) => {
                         })
                         .then(({ email }) => {
                             employee.email = email;
-
-
                             
                             if (employeeType === "Engineer") {
-                                employee.type = "engineer"
-
+                                const engineer = new Engineer();
+                                engineer.name = employee.name;
+                                engineer.id = employee.id;
+                                engineer.email = employee.email;
                                 inquirer
                                     .prompt({
                                         type: 'text',
                                         name: 'github',
-                                        message: `What is ${employee.name}'s GitHub username?`
+                                        message: `What is ${engineer.name}'s GitHub username?`
                                     })
                                     .then(({ github }) => {
-                                        employee.github = github;
-                                        team.push(employee);
+                                        engineer.GitHub(github);
+                                        
+                                        team.push(engineer);
                                         console.log(team);
                                         nextEmployee();
                                      })
                             } else if (employeeType === "Intern") {
-                                employee.type = "intern"
+                                const intern = new Intern();
+                                intern.name = employee.name;
+                                intern.id = employee.id;
+                                intern.email = employee.email;
                                 inquirer
                                     .prompt({
                                         type: 'text',
                                         name: 'school',
-                                        message: `What is the name of ${employee.name}'s school?`
+                                        message: `What is the name of ${intern.name}'s school?`
                                     })
                                     .then(({ school }) => {
-                                        employee.school = school;
-                                        team.push(employee);
+                                        intern.school = school;
+                                        team.push(intern);
                                         console.log(team);
                                         nextEmployee();
                                     })
