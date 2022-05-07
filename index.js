@@ -53,23 +53,7 @@ const startApplication = () => {
                                         // manger object is complete and stored in manager, pushed to team object
                                         console.log(manager);
                                         team.push(manager);
-
-                                        inquirer
-                                            //ask what type of employee info they want to add next
-                                            .prompt({
-                                                type: 'list',
-                                                name: 'nextEmployee',
-                                                message: 'Which type of employee details do you want to add next?',
-                                                choices: ['Engineer', 'Intern', 'None']
-                                            })
-                                        
-                                            .then(({ nextEmployee }) => {
-                                                if (nextEmployee === 'None') {
-                                                    console.log("You are done.")
-                                                } else {
-                                                    getEmployeeInfo(nextEmployee);
-                                                }
-                                            })
+                                        nextEmployee();
                                     })
                             })
                 })
@@ -79,6 +63,24 @@ const startApplication = () => {
         })
 }
 
+const nextEmployee = () => {
+    inquirer
+        //ask what type of employee info they want to add next
+        .prompt({
+            type: 'list',
+            name: 'nextEmployee',
+            message: 'Which type of employee details do you want to add next?',
+            choices: ['Engineer', 'Intern', 'None']
+        })
+
+        .then(({ nextEmployee }) => {
+            if (nextEmployee === 'None') {
+                console.log("You are done.")
+            } else {
+                getEmployeeInfo(nextEmployee);
+            }
+        })
+}
 const getEmployeeInfo = (employeeType) => {
     console.log(`Getting name, id, and email for ${employeeType}`);
 
@@ -128,6 +130,7 @@ const getEmployeeInfo = (employeeType) => {
                                         employee.github = github;
                                         team.push(employee);
                                         console.log(team);
+                                        nextEmployee();
                                      })
                             } else if (employeeType === "Intern") {
                                 employee.type = "intern"
@@ -141,12 +144,12 @@ const getEmployeeInfo = (employeeType) => {
                                         employee.school = school;
                                         team.push(employee);
                                         console.log(team);
+                                        nextEmployee();
                                     })
                             } else {
                                 console.log("You shouldn't get here.")
                             }
                         })
-
                 })
         })
 }
