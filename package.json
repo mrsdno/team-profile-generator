@@ -21,5 +21,8 @@
   "homepage": "https://github.com/mrsdno/team-profile-generator#readme",
   "devDependencies": {
     "jest": "^28.1.0"
+  },
+  "dependencies": {
+    "inquirer": "^8.2.4"
   }
 }
