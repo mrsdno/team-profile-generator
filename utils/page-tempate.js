@@ -33,8 +33,8 @@ const generatePage = teamData => {
                     <h1>${name}</h1>
                     <h2>${role}</h2>
                 
-                    <p>${id}</p>
-                    <p>${email}</p>
+                    <p>Employee Id: ${id}</p>
+                    <p>Email: <a href="mailto:${email}">${email}</a></p>
                     <p>${office}</p>
                 </div>
                 `;
@@ -49,9 +49,9 @@ const generatePage = teamData => {
                     <h1>${name}</h1>
                     <h2>${role}</h2>
                 
-                    <p>${id}</p>
-                    <p>${email}</p>
-                    <p>${github}</p>
+                    <p>Employee Id: ${id}</p>
+                    <p>Email: <a href="mailto:${email}">${email}</a></p>
+                    <p>GitHub: <a href="https://github.com/${github}">${github}</a></p>
                 </div>
                 `;
             })
@@ -65,8 +65,8 @@ const generatePage = teamData => {
                     <h1>${name}</h1>
                     <h2>${role}</h2>
                 
-                    <p>${id}</p>
-                    <p>${email}</p>
+                    <p>Employee Id: ${id}</p>
+                    <p>Email: <a href="mailto:${email}">${email}</a></p>
                     <p>${school}</p>
                 </div>
                 `;
