@@ -19,6 +19,8 @@ const generatePage = teamData => {
             <meta charset="UTF-8">
             <meta http-equiv="X-UA-Compatible" content="IE=edge">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+            <link rel="stylesheet" href="https://fonts.sandbox.google.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
             <link rel="stylesheet" href="style.css" />
             <title>Team Dashboard</title>
         </head>
@@ -26,48 +28,48 @@ const generatePage = teamData => {
             <header>My Team</header>
             <section class="team-display">
             ${teamData
-            .filter(({ role }) => role === "manager")
-            .map(({ name, role, id, email, office }) => {
+            .filter(({ role }) => role === "Manager")
+            .map(({ name, role, id, email, office, icon }) => {
                 return `
                 <div class="team-member">
                     <h1>${name}</h1>
-                    <h2>${role}</h2>
+                    <h2><span class="material-symbols-outlined">${icon}</span><span>${role}</span></h2>
                 
                     <p>Employee Id: ${id}</p>
                     <p>Email: <a href="mailto:${email}">${email}</a></p>
-                    <p>${office}</p>
+                    <p>Office: ${office}</p>
                 </div>
                 `;
             })
         .join('')}
 
             ${teamData
-            .filter(({ role }) => role === "engineer")
-            .map(({ name, role, id, email, github }) => {
+            .filter(({ role }) => role === "Engineer")
+            .map(({ name, role, id, email, github, icon }) => {
                 return `
                 <div class="team-member">
                     <h1>${name}</h1>
-                    <h2>${role}</h2>
+                    <h2><span class="material-symbols-outlined">${icon}</span><span>${role}</span></h2>
                 
                     <p>Employee Id: ${id}</p>
                     <p>Email: <a href="mailto:${email}">${email}</a></p>
-                    <p>GitHub: <a href="https://github.com/${github}">${github}</a></p>
+                    <p>GitHub: <a href="https://github.com/${github}" target="_blank">${github}</a></p>
                 </div>
                 `;
             })
             .join('')}
         
             ${teamData
-            .filter(({ role }) => role === "intern")
-            .map(({ name, role, id, email, school }) => {
+            .filter(({ role }) => role === "Intern")
+            .map(({ name, role, id, email, school, icon }) => {
                 return `
                 <div class="team-member">
                     <h1>${name}</h1>
-                    <h2>${role}</h2>
+                    <h2><span class="material-symbols-outlined">${icon}</span><span>${role}</span></h2>
                 
                     <p>Employee Id: ${id}</p>
                     <p>Email: <a href="mailto:${email}">${email}</a></p>
-                    <p>${school}</p>
+                    <p>School: ${school}</p>
                 </div>
                 `;
             })

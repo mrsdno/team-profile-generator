@@ -1,6 +1,31 @@
 * {
     box-sizing: border-box;
 }
+:root {
+    --teal: rgb(78, 115, 110);
+    --black: rgb(47, 51, 47);
+    --yellow: rgb(217, 165, 58);
+    --purple: rgb(44, 33, 90);
+    --red: rgb(190, 30, 45);
+    --white: #fff;
+}
+
+
+body {
+    font-family: "Montserrat", sans-serif;
+    background-color: var(--white);
+}
+
+header {
+    height: 5em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--black);
+    color: var(--white);
+    font-size: 2rem;
+    margin-bottom: 2.5rem;
+}
 
 .team-display {
     display: flex;
@@ -10,7 +35,58 @@
 
 .team-member {
     width: 30%;
-    border: 3px solid red;
-    padding: 0.3rem;
+    background-color: var(--teal);
+    border: 3px solid var(--teal);
+    padding: 0.7rem;
     margin: 0.3rem;
+    overflow: hidden;
+    white-space: nowrap;
+    line-height: 1.4;
+}
+
+.team-member h1, h2 {
+    display: flex;
+    align-items: center;
+}
+
+.team-member h1{
+    color: var(--red);
+    font-weight: bold;
+    font-size: 1.4rem;
+    text-transform: uppercase;
+}
+
+.team-display h2{
+    color: var(--purple);
+    font-size: 1.2rem;
+}
+
+.team-display span {
+    padding-right: 0.5rem;
+}
+
+.team-member a {
+    color: var(--yellow);
+    text-decoration: none;
+}
+
+.team-member a:hover {
+    color: var(--red);
+}
+
+.team-member p {
+    color: var(--white);
+    font-size: 0.8rem;
+}
+
+@media screen and (max-width: 1000px) {
+    .team-member {
+        width: 45%;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .team-member {
+        width: 80%;
+}
 }
