@@ -23,7 +23,7 @@ const startApplication = () => {
         .then(({ name }) => {
             // set up manager object
             let manager = new Manager(name);
-            manager.name = name
+            manager.Name(name);
 
             inquirer
                 // get manager id
@@ -33,7 +33,7 @@ const startApplication = () => {
                     message: `What is ${manager.name}'s id?`
                 })
                     .then(({ id }) => {
-                        manager.id = id;
+                        manager.Id(id);
                         
                         inquirer
                             // get manager email
@@ -43,7 +43,7 @@ const startApplication = () => {
                                 message: `What is ${manager.name}'s email?`
                             })
                             .then(({ email }) => {
-                                manager.email = email;
+                                manager.Email(email);
 
                                 inquirer
                                     // get manager office number
@@ -54,7 +54,7 @@ const startApplication = () => {
                                     })
                                     .then(({ office }) => {
                                         manager.type
-                                        manager.office = office;
+                                        manager.Office(office);
                                         
                                         // manger object is complete and stored in manager, pushed to team object
                                         console.log(manager);
@@ -102,7 +102,7 @@ const getEmployeeInfo = (employeeType) => {
         .then(({ name }) => {
             // set up employee object
             const employee = new Employee();
-            employee.name = name;
+            employee.Name(name);
 
             inquirer
                 // get employee id
@@ -112,7 +112,7 @@ const getEmployeeInfo = (employeeType) => {
                     message: `What is ${employee.name}'s id?`
                 })
                 .then(({ id }) => {
-                    employee.id = id;
+                    employee.Id(id);
                         
                     inquirer
                         // get employee email
@@ -122,13 +122,10 @@ const getEmployeeInfo = (employeeType) => {
                             message: `What is ${employee.name}'s email?`
                         })
                         .then(({ email }) => {
-                            employee.email = email;
+                            employee.Email(email)
                             
                             if (employeeType === "Engineer") {
                                 let engineer = new Engineer(employee.name, employee.id, employee.email);
-                                // engineer.name = employee.name;
-                                // engineer.id = employee.id;
-                                // engineer.email = employee.email;
                                 inquirer
                                     .prompt({
                                         type: 'text',
@@ -144,9 +141,6 @@ const getEmployeeInfo = (employeeType) => {
                                      })
                             } else if (employeeType === "Intern") {
                                 const intern = new Intern(employee.name, employee.id, employee.email);
-                                // intern.name = employee.name;
-                                // intern.id = employee.id;
-                                // intern.email = employee.email;
                                 inquirer
                                     .prompt({
                                         type: 'text',
@@ -154,7 +148,7 @@ const getEmployeeInfo = (employeeType) => {
                                         message: `What is the name of ${intern.name}'s school?`
                                     })
                                     .then(({ school }) => {
-                                        intern.school = school;
+                                        intern.School(school);
                                         team.push(intern);
                                         console.log(team);
                                         nextEmployee();
