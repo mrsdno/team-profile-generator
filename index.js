@@ -23,7 +23,7 @@ const startApplication = () => {
         .then(({ name }) => {
             // set up manager object
             let manager = new Manager(name);
-            manager.Name(name);
+            manager.getName(name);
 
             inquirer
                 // get manager id
@@ -33,7 +33,7 @@ const startApplication = () => {
                     message: `What is ${manager.name}'s id?`
                 })
                     .then(({ id }) => {
-                        manager.Id(id);
+                        manager.getId(id);
                         
                         inquirer
                             // get manager email
@@ -43,7 +43,7 @@ const startApplication = () => {
                                 message: `What is ${manager.name}'s email?`
                             })
                             .then(({ email }) => {
-                                manager.Email(email);
+                                manager.getEmail(email);
 
                                 inquirer
                                     // get manager office number
@@ -54,7 +54,7 @@ const startApplication = () => {
                                     })
                                     .then(({ office }) => {
                                         manager.type
-                                        manager.Office(office);
+                                        manager.getOffice(office);
                                         
                                         // manger object is complete and stored in manager, pushed to team object
                                         console.log(manager);
@@ -102,7 +102,7 @@ const getEmployeeInfo = (employeeType) => {
         .then(({ name }) => {
             // set up employee object
             const employee = new Employee();
-            employee.Name(name);
+            employee.getName(name);
 
             inquirer
                 // get employee id
@@ -112,7 +112,7 @@ const getEmployeeInfo = (employeeType) => {
                     message: `What is ${employee.name}'s id?`
                 })
                 .then(({ id }) => {
-                    employee.Id(id);
+                    employee.getId(id);
                         
                     inquirer
                         // get employee email
@@ -122,7 +122,7 @@ const getEmployeeInfo = (employeeType) => {
                             message: `What is ${employee.name}'s email?`
                         })
                         .then(({ email }) => {
-                            employee.Email(email)
+                            employee.getEmail(email)
                             
                             if (employeeType === "Engineer") {
                                 let engineer = new Engineer(employee.name, employee.id, employee.email);
@@ -133,7 +133,7 @@ const getEmployeeInfo = (employeeType) => {
                                         message: `What is ${engineer.name}'s GitHub username?`
                                     })
                                     .then(({ github }) => {
-                                        engineer.GitHub(github);
+                                        engineer.getGitHub(github);
                                         
                                         team.push(engineer);
                                         console.log(team);
@@ -148,7 +148,7 @@ const getEmployeeInfo = (employeeType) => {
                                         message: `What is the name of ${intern.name}'s school?`
                                     })
                                     .then(({ school }) => {
-                                        intern.School(school);
+                                        intern.getSchool(school);
                                         team.push(intern);
                                         console.log(team);
                                         nextEmployee();

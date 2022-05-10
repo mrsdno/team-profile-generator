@@ -25,6 +25,7 @@ header {
     color: var(--white);
     font-size: 2rem;
     margin-bottom: 2.5rem;
+    text-transform: uppercase;
 }
 
 .team-display {
