@@ -42,7 +42,7 @@ const generatePage = teamData => {
                 `;
             })
         .join('')}
-
+    
             ${teamData
             .filter(({ role }) => role === "Engineer")
             .map(({ name, role, id, email, github, icon }) => {
@@ -79,6 +79,7 @@ const generatePage = teamData => {
         </body>
         </html>
 `
+
     writeFile(htmlTemplate);
 };
 

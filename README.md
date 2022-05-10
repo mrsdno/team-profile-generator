@@ -1,51 +1,59 @@
-# team-profile-generator-
+# README.md Generator
 
-## User Story
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-AS A manager
-I WANT to generate a webpage that displays my team's basic info
-SO THAT I have quick access to their emails and GitHub profiles
+  ## Table of Contents
 
-## Acceptance Criteria
+  * [Description](#description)
+  * [Installation](#installation)
+  * [Usage](#usage)
+  * [Contributing](#contributing)
+  * [License](#license)
+  * [Questions](#questions)
 
-GIVEN a command-line application that accepts user input
+  ## Description
 
-✔️WHEN I am prompted for my team members and their information
+  This is an application that can be used to create a webpage that displays a team's employees and contact information. The inquirer node package is used to prompt the user for information about each team member. Then the file system package is used to generate an html file that dispalys the team's information with links that make it easy to reach out to your team via email. 
 
-✔️THEN an HTML file is generated that displays a nicely formatted team roster based on user input
+  ## Installation
 
+  *To set up this file locally...*
 
-✔️WHEN I click on an email address in the HTML
+   - Clone this repo to your computer
+   - Run `npm i` to install the dependencies
 
-✔️THEN my default email program opens and populates the TO field of the email with the address
+  ## Usage
+  
+  To start the application: `node index`
 
+  The command line will then prompt a series of questions. Answer the questions as they pertain to the team dashboard you are building.
 
-✔️WHEN I click on the GitHub username
+  Once the prompts are complete, an html file will be created with the information provided in the **/dist** folder. Open the file in the browser to view the new dashboard!
 
-✔️THEN that GitHub profile opens in a new tab
+  You can find a video tutorial showing how to use this application on my [youtube](https://youtu.be/) channel.
 
+  ## Tests
 
-✔️ WHEN I start the application
+  Tests for this application were built with Jest. 
 
-✔️ THEN I am prompted to enter the team manager’s name, employee ID, email address, and office number
+  To run the tests: `npm run tests`
 
+  ## Contributing
 
-✔️ WHEN I enter the team manager’s name, employee ID, email address, and office number
+  [Inquirer](https://www.npmjs.com/package/inquirer) was used to create the interactive command line user interface.
+  
+  [Jest](https://jestjs.io/) was used for creating the tests.
 
-✔️ THEN I am presented with a menu with the option to add an engineer or an intern or to finish building my team
+  ## License
+  
+  Copyright © 2022 Christine Diienno
 
+  This project is licensed under the [MIT License](https://mit-license.org/).
 
-✔️ WHEN I select the engineer option
+  ## Questions
 
-✔️ THEN I am prompted to enter the engineer’s name, ID, email, and GitHub username, and I am taken back to the menu
+  Do you have any questions? 
 
-
-✔️ WHEN I select the intern option
-
-✔️ THEN I am prompted to enter the intern’s name, ID, email, and school, and I am taken back to the menu
-
-
-
-✔️ WHEN I decide to finish building my team
-
-✔️ THEN I exit the application, and the HTML is generated
+  You can find my github profile here: [mrsdno](https://github.com/mrsdno)
+  
+  Or you can email me here: [christine@dno.dev](mailto:christine@dno.dev)

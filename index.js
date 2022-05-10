@@ -21,7 +21,7 @@ const startApplication = () => {
             message: "What is the team manager's name?"
         })
         .then(({ name }) => {
-            // set up manager object
+            // set up manager object to store data
             let manager = new Manager(name);
             manager.getName(name);
 
@@ -56,8 +56,8 @@ const startApplication = () => {
                                         manager.type
                                         manager.getOffice(office);
                                         
-                                        // manger object is complete and stored in manager, pushed to team object
-                                        console.log(manager);
+                                        // manager is complete pushed to team array
+                                        console.log('Team Manager data is complete!')
                                         team.push(manager);
                                         nextEmployee();
                                     })
@@ -71,20 +71,21 @@ const startApplication = () => {
 
 const nextEmployee = () => {
     inquirer
-        //ask what type of employee info they want to add next
+        // ask what type of employee info they want to add next
         .prompt({
             type: 'list',
             name: 'nextEmployee',
             message: 'Which type of employee details do you want to add next?',
             choices: ['Engineer', 'Intern', 'None']
         })
-
+        // if none, end the application and generate html page
         .then(({ nextEmployee }) => {
             if (nextEmployee === 'None') {
-                console.log("You are done.")
+                console.log("The team is complete! HTML file has been generated where you can view the team dashboard.")
                 generatePage(team);
 
             } else {
+                // begin next employee prompts again and pass in the type of employee chosen
                 getEmployeeInfo(nextEmployee);
             }
         })
@@ -136,7 +137,6 @@ const getEmployeeInfo = (employeeType) => {
                                         engineer.getGitHub(github);
                                         
                                         team.push(engineer);
-                                        console.log(team);
                                         nextEmployee();
                                      })
                             } else if (employeeType === "Intern") {
@@ -150,7 +150,6 @@ const getEmployeeInfo = (employeeType) => {
                                     .then(({ school }) => {
                                         intern.getSchool(school);
                                         team.push(intern);
-                                        console.log(team);
                                         nextEmployee();
                                     })
                             } else {
