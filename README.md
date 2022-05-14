@@ -15,6 +15,12 @@
 
   ## Description
 
+*Built using:*
+- Node.js®
+- JavaScript
+- HTML
+- CSS
+
   This is an application that can be used to create a webpage that displays a team's employees and contact information. The inquirer node package is used to prompt the user for information about each team member. Then the file system package is used to generate an html file that dispalys the team's information with links that make it easy to reach out to your team via email. 
 
   ## Installation
