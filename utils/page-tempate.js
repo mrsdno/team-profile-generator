@@ -9,8 +9,6 @@ const generatePage = teamData => {
     if(!teamData) {
         return '';
     }
-    console.log("You made it to the generate page function here is the data I have");
-    console.log("The managers name is:"  + teamData[0].name)
     htmlTemplate = `
 
     <!DOCTYPE html>

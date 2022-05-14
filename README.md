@@ -2,6 +2,8 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
+![screenshot](./assets/screenshot.png)
+
   ## Table of Contents
 
   * [Description](#description)
@@ -54,6 +56,9 @@
 
   Do you have any questions? 
 
+  Checkout the youtube video explaining how to use the application: [youtube](https://youtu.be/rtxqu2zcx-w)
+
   You can find my github profile here: [mrsdno](https://github.com/mrsdno)
   
   Or you can email me here: [christine@dno.dev](mailto:christine@dno.dev)
+
